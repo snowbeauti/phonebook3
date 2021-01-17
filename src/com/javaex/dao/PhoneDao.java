@@ -126,7 +126,7 @@ public class PhoneDao {
 	//사람 1명 가져오기
 	
 	public PersonVo getPerson(int personId) {
-		PersonVo personVo = null;
+		PersonVo pvo = null;
 		getConnection();
 		try {
 			// 3. SQL문 준비 / 바인딩 / 실행
@@ -151,14 +151,14 @@ public class PhoneDao {
 				String hp = rs.getString("hp");
 				String company = rs.getString("company");
 				
-				personVo = new PersonVo(personID, name, hp, company);
+				pvo = new PersonVo(personID, name, hp, company);
 			}
 		} catch (SQLException e) {
 			System.out.println("error:" + e);
 		}
 		// 자원정리
 		close();
-		return personVo;
+		return pvo;
 	}
 	
 	//삭제
